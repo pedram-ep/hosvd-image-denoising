@@ -3,6 +3,8 @@ from tensorly.decomposition import tucker
 from .patch_grouping import create_patch_groups
 from .aggregation import aggregate_patches
 
+tl.set_backend('numpy')
+
 def hosvd_denoise(noisy_image, sigma=25, patch_size=8, search_radius=20, max_patches=30, stride=4):
     groups, locations = create_patch_groups(
         noisy_image, patch_size, sigma, search_radius, max_patches, stride
